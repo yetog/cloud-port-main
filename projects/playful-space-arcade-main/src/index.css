@@ -1,0 +1,120 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* Light blue-white */
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 210 100% 50%; /* Blue */
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 199 89% 75%; /* Light blue */
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 8%; /* Dark black */
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 47 100% 50%; /* Gold */
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 43 89% 38%; /* Dark gold */
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 213 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  .dark .glass {
+    @apply backdrop-blur-md bg-black/10 border border-white/10;
+  }
+  
+  .game-card {
+    @apply relative overflow-hidden rounded-2xl bg-card p-6 shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .game-card:hover {
+    @apply translate-y-[-5px];
+  }
+  
+  .btn-game {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:brightness-110 h-10 py-2 px-4;
+  }
+  
+  .game-canvas {
+    @apply rounded-xl shadow-md border border-border bg-card;
+  }
+  
+  .game-grid {
+    @apply grid gap-1 rounded-xl shadow-md border border-border overflow-hidden bg-card;
+  }
+  
+  .page-transition-enter {
+    @apply animate-enter;
+  }
+  
+  .page-transition-exit {
+    @apply animate-exit;
+  }
+}
